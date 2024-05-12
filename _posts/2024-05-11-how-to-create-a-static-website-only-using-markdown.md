@@ -2,6 +2,7 @@
 layout: post
 title: "How to create a static website only using Markdown"
 categories: how-to
+permalink: /how-to-create-a-static-website-only-using-markdown/
 ---
 
 In this blog, you'll learn how to create a static website by only using Markdown
