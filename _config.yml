@@ -1,6 +1,5 @@
 title: My Personal Blog Website
-description: >
-  This is my simple blog website where I can host my stuff for the time being
+description: This is my simple blog website where I can host my stuff for the time being
 
 theme: minima
 #remote_theme: jekyll/minima
@@ -10,7 +9,7 @@ header_pages:
 
 minima:
   social_links:
-    - { platform: github,  user_url: "https://github.com/Marshfellow42" }
+    - { platform: github,  user_url: "https://github.com/marshfellow42" }
 
 plugins:
   - jekyll-feed

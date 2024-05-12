@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to create a static website only using Markdown"
+title: How to create a static website only using Markdown
 categories: how-to
 permalink: /how-to-create-a-static-website-only-using-markdown/
 ---
@@ -25,9 +25,7 @@ There are a lot of Jekyll themes that Github makes available, to check them out 
 
 ```bash
 title: My Personal Blog Website
-description: >
-  This is my simple blog website where I can host my stuff for the time being
-
+description: This is my simple blog website where I can host my stuff for the time being
 theme: minima
 ```
 
@@ -43,6 +41,7 @@ To create a post on Minima, you need to create a folder called ```_posts```
 Inside of the folder you created, you'll follow this naming model ```<year>-<month>-<day>-<filename>.md```
 
 ## How to create a domain on Github Pages
+
 To create a Github Pages domain, you first need to create a Github account
 
 Then, create you own repo for hosting the Github Pages domain
@@ -82,3 +81,10 @@ bundle exec jekyll serve
 ```
 
 To access it, just run ```localhost:4000``` to view your website
+
+## How to make your website similar to mine
+Just fork my website <a href="https://github.com/marshfellow42/Markdown-Blog-Website" target="_blank">repo</a>
+
+To edit the footer, just go to ```_includes``` and there you're going to find a file called ```footer.html```
+
+To edit anything else, just go there and edit the files for your needs
