@@ -1,18 +1,24 @@
 ---
 layout: post
 title: How to create a Private Git Server on a Raspberry Pi
+subtitle: A guide to learn how to host your own git server without depending on big tech
 categories: how-to
-permalink: /how-to-create-a-private-git-server-on-a-raspberry-pi/
+modified_date: 2024-05-14
 ---
+<img src="../images/rpi5.png" />
 
-For this Private Git Server, we're gonna use Gitea
+For this Private Git Server, we're gonna use Forgejo
 
-Why Gitea instead of GitLab?
+Why Forgejo instead of Gitea?
 
-Well, Gitea is more lightweight and only contains the essential for a Git server like that
+Well, Forgejo is essentially Gitea, but Gitea is maintained by a for-profit company and I have some opinions that I would share later, nevertheless Forgejo is lightweight and only contains the essential for a Git server like that
+
+Besides, Forgejo embrasses true FOSS instead of Open Core
+
+Many projects today use Forgejo as a self-hosted solution like <a href="https://github.com/litucks/torzu" target="_blank">Torzu</a> and <a href="https://git.slowb.ro/explore/repos" target="_blank">this guy</a>
 
 ## Installation
-To install Gitea, we're going to use docker-compose
+To install Forgejo, we're going to use docker-compose
 
 Download and run the docker installation script:
 
@@ -42,29 +48,29 @@ id -g <username>
 Create a ```docker-compose.yml``` file somewhere sensible and paste in the following. Remember to change the ports if there are clashes with other services. If you already have
 
 ```bash
-version: "3"
+version: '3'
 
 networks:
-  gitea:
+  forgejo:
     external: false
 
 services:
   server:
-    image: gitea/gitea:latest
-    container_name: gitea
+    image: codeberg.org/forgejo/forgejo:latest
+    container_name: forgejo
     environment:
       - USER_UID=1000
       - USER_GID=1000
     restart: always
     networks:
-      - gitea
+      - forgejo
     volumes:
-      - ./gitea:/data
+      - ./forgejo:/data
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     ports:
-      - "3000:3000"
-      - "222:22"
+      - '3000:3000'
+      - '222:22'
 ```
 Save and exit your editor. If you want to start docker when your Pi boots up, then run the following command:
 
@@ -76,4 +82,4 @@ Now start the docker stack. Run the following command (in the directory of your 
 ```bash
 docker compose up --detach
 ```
-Now you can navigate to your Gitea server by pointing your web browser to the IP address of your Raspberry Pi followed by port 3000.
+Now you can navigate to your Forgejo server by pointing your web browser to the IP address of your Raspberry Pi followed by port 3000.

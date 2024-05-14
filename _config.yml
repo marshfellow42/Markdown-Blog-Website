@@ -1,3 +1,5 @@
+host: 0.0.0.0
+
 title: My Personal Blog Website
 description: This is my simple blog website where I can host my stuff for the time being
 
@@ -6,6 +8,7 @@ theme: minima
 
 header_pages:
   - about.md
+  
 
 minima:
   social_links:
@@ -14,3 +17,12 @@ minima:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+
+# This is for the permalink on _posts
+permalink: /:title/
+
+# This is for the permalink on _drafts and to use the folder _drafts
+collections:
+  drafts:
+    output: true
+    permalink: /:title/

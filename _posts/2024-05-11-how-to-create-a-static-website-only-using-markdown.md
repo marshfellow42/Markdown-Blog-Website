@@ -2,7 +2,6 @@
 layout: post
 title: How to create a static website only using Markdown
 categories: how-to
-permalink: /how-to-create-a-static-website-only-using-markdown/
 ---
 
 In this blog, you'll learn how to create a static website by only using Markdown
@@ -75,7 +74,7 @@ On the ```terminal```, run this command to install all themes
 bundle install
 ```
 
-To run the server, run this command on the terminal
+To run the website, run this command on the terminal
 ```bash
 bundle exec jekyll serve
 ```

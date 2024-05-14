@@ -1,8 +1,7 @@
 ---
 layout: post
-title: How to do torrenting on qBittorrent
+title: "How to do torrenting on qBittorrent"
 categories: how-to
-permalink: /how-to-do-torrenting-on-qbittorrent/
 ---
 
 This guide was specifically made for qBittorrent, but the process must be similar to other torrent clients like Transmission or Deluge

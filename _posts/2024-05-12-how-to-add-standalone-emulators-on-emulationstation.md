@@ -2,7 +2,6 @@
 layout: post
 title: How to add standalone emulators on EmulationStation
 categories: how-to
-permalink: /how-to-add-standalone-emulators-on-emulationstation/
 ---
 
 ## Installation
