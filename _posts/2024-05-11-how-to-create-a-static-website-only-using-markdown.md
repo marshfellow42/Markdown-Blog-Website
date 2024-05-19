@@ -2,6 +2,7 @@
 layout: post
 title: How to create a static website only using Markdown
 categories: how-to
+modified_date: 2024-05-18
 ---
 
 In this blog, you'll learn how to create a static website by only using Markdown
@@ -14,13 +15,16 @@ To start things off, we need to define where your website will start
 
 For that, you need to create a ```index.md```
 
-Now, to define how Jekyll will run, you need to create a ```_config.yml```
+Inside ```index.md```, you're gonna input this to have the home layout
+```bash
+---
+layout: home
+---
+```
+
+Now, you need to define how Jekyll will run, for that you need to create a ```_config.yml```
 
 In the ```_config.yml```, you'll define your title, your description, and most importantly, your theme
-
-I use ```Minima``` so most of their documentation are in their <a href="https://github.com/jekyll/minima/blob/master/README.md" target="_blank">README</a>, explaining how their plugins work, how to include icons that redirect to your social media and stuff like that
-
-There are a lot of Jekyll themes that Github makes available, to check them out access their <a href="https://pages.github.com/themes/" target="_blank">website</a>
 
 ```bash
 title: My Personal Blog Website
@@ -28,12 +32,9 @@ description: This is my simple blog website where I can host my stuff for the ti
 theme: minima
 ```
 
-To start things on ```Minima```, you need to set the ```index.md``` to have the home layout
-```bash
----
-layout: home
----
-```
+I use ```Minima``` so most of their documentation are in their <a href="https://github.com/jekyll/minima/blob/master/README.md" target="_blank">README</a>, explaining how their plugins work, how to include icons that redirect to your social media and stuff like that
+
+There are a lot of Jekyll themes that Github makes available, to check them out access their <a href="https://pages.github.com/themes/" target="_blank">website</a>
 
 To create a post on Minima, you need to create a folder called ```_posts```
 
@@ -59,17 +60,18 @@ To install it, go to this <a href="https://jekyllrb.com/docs/installation/" targ
 
 Follow their guide step by step
 
-Afterwards, create a file called ```Gemfile```, there you're going to put all the themes from Github Pages, so it doesn't render any incompatibility
+Afterwards, create a file called ```Gemfile```, there you're going to put all the plugins and dependencies required for it to run
 
 ```ruby
 source "https://rubygems.org"
 
 require 'webrick'
 
+gem 'webrick'
 gem "github-pages", group: :jekyll_plugins
 ```
 
-On the ```terminal```, run this command to install all themes
+On the ```terminal```, run this command to install everything on ```Gemfile```
 ```bash
 bundle install
 ```
@@ -81,9 +83,72 @@ bundle exec jekyll serve
 
 To access it, just run ```localhost:4000``` to view your website
 
+If you want to make it accessible on other devices on your local network, just add this on ```_config.yml```
+
+```yaml
+host: 0.0.0.0
+```
+
+This will make your website accessible on all devices on your local network after you input the ip address of your computer
+
+It should be something like this, ```192.168.x.xxx:4000```
+
+## How to load custom folders on the headers
+For this example, we're gonna use ```drafts```
+
+To start things out, we first need to create a file called ```drafts.md```, it doesn't really matter the filename, since the frontmatter title is what it really matter to display on the header
+
+Inside ```drafts.md```, your gonna put this as a frontmatter
+
+```bash
+---
+layout: drafts
+title: Drafts
+---
+```
+
+The ```layout: drafts``` is gonna look for the file ```drafts.html``` on the folder ```_layout```
+
+After creating the file ```drafts.html``` on the folder ```_layouts```, you're going to copy and paste the ```post.html```
+
+And just change the paginator and site directory
+
+```
+if site.paginate
+  assign posts = paginator.posts
+else
+  assign posts = site.posts
+endif
+```
+
+To
+
+```
+if site.paginate
+  assign posts = paginator.drafts
+else
+  assign posts = site.drafts
+endif
+```
+
+Now, to use the drafts folder, you're gonna create a folder called ```_drafts```
+
+And for it to be recognized, you need to add this in the ```_config.yml```
+
+```yaml
+collections:
+  drafts:
+    output: true
+```
+
+Now, for the ```drafts.md``` to be shown on the header of your site, just put this in the ```_config.yml```
+
+```yaml
+header_pages:
+  - drafts.md
+```
+
+And now, your custom drafts folder is now displayed on the header for it to be accessed by others
+
 ## How to make your website similar to mine
-Just fork my website <a href="https://github.com/marshfellow42/Markdown-Blog-Website" target="_blank">repo</a>
-
-To edit the footer, just go to ```_includes``` and there you're going to find a file called ```footer.html```
-
-To edit anything else, just go there and edit the files for your needs
+Just fork my <a href="https://github.com/marshfellow42/Markdown-Blog-Website" target="_blank">repo</a>

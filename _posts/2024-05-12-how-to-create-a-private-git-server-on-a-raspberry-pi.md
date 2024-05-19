@@ -7,7 +7,7 @@ modified_date: 2024-05-14
 ---
 <img src="../images/rpi5.png" />
 
-For this Private Git Server, we're gonna use Forgejo
+For this Private Git Server, we're gonna use <a href="https://forgejo.org/" target="_blank">Forgejo</a>
 
 Why Forgejo instead of Gitea?
 
