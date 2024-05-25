@@ -1,4 +1,0 @@
----
-layout: drafts
-title: Drafts
----

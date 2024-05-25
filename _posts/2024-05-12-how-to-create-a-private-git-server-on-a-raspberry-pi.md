@@ -5,7 +5,7 @@ subtitle: A guide to learn how to host your own git server without depending on 
 categories: how-to
 modified_date: 2024-05-14
 ---
-<img src="../images/rpi5.png" />
+<img src="/images/rpi5.png">
 
 For this Private Git Server, we're gonna use <a href="https://forgejo.org/" target="_blank">Forgejo</a>
 

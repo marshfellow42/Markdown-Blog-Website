@@ -12,15 +12,20 @@ layout: base
         {{ page.date | date: date_format }}
       </time>
       {%- if page.modified_date -%}
-        •  Modified on
+        •  Updated on
         {%- assign mdate = page.modified_date | date_to_xmlschema -%}
         <time class="dt-modified" datetime="{{ mdate }}" itemprop="dateModified">
           {{ mdate | date: date_format }}
         </time>
       {%- endif -%}
       {%- if page.author -%}
-        • {% for author in page.author %}
-          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <br>
+        <br>
+        {% for author in page.author %}
+            {%- if page.author-image -%}
+              <img src="{{ page.author-image }}" class="img-author">
+            {%- endif -%}
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
             <span class="p-author h-card" itemprop="name">{{ author }}</span></span>
             {%- if forloop.last == false %}, {% endif -%}
         {% endfor %}

@@ -11,9 +11,9 @@ layout: base
 
 
   {% if site.paginate %}
-    {% assign posts = paginator.posts | sort: 'date' | reverse | sort: 'modified_date' | reverse%}
+    {% assign posts = paginator.posts | sort: 'date' | reverse %}
   {% else %}
-    {% assign posts = site.posts | sort: 'date' | reverse | sort: 'modified_date' | reverse%}
+    {% assign posts = site.posts | sort: 'date' | reverse %}
   {% endif %}
 
 
@@ -26,7 +26,7 @@ layout: base
       {%- for post in posts -%}
       <li>
         {%- if post.modified_date -%}
-          <span class="post-meta">{{ post.modified_date | date: date_format }}</span>
+          <span class="post-meta">{{ post.date | date: date_format }} • Updated on {{ post.modified_date | date: date_format }}</span>
         {%- else -%}
           <span class="post-meta">{{ post.date | date: date_format }}</span>
         {%- endif -%}

@@ -1,2 +1,29 @@
 // Placeholder to allow defining custom styles that override everything else.
 // (Use `_sass/minima/custom-variables.scss` to override variable defaults)
+
+.img-author {
+    display: inline-block;
+    width: 2em; /* Match the font size */
+    height: 2em;
+    border-radius: 50%;
+}
+
+.alert-success {
+    display: inline-block;
+    background-color: rgba(0, 255, 0, 0.6); /* Green with 60% opacity */
+    padding-left: 20px; /* Adds 20px padding on the left */
+    padding-top: 10px; /* Adds 10px padding on the top */
+    padding-right: 20px; /* Adds 10px padding on the right */
+    padding-bottom: 10px; /* Adds 10px padding on the bottom */
+    border-radius: 10px; /* Optional: adds rounded corners */
+}
+
+.alert-danger {
+    display: inline-block;
+    background-color: rgba(255, 0, 0, 0.6); /* Red with 60% opacity */
+    padding-left: 20px; /* Adds 20px padding on the left */
+    padding-top: 10px; /* Adds 10px padding on the top */
+    padding-right: 20px; /* Adds 10px padding on the right */
+    padding-bottom: 10px; /* Adds 10px padding on the bottom */
+    border-radius: 10px; /* Optional: adds rounded corners */
+}

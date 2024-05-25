@@ -4,11 +4,10 @@ title: My Personal Blog Website
 description: This is my simple blog website where I can host my stuff for the time being
 
 theme: minima
-#remote_theme: jekyll/minima
+remote_theme: jekyll/minima
 
 header_pages:
   - about.md
-  
 
 minima:
   social_links:
@@ -20,9 +19,3 @@ plugins:
 
 # This is for the permalink on _posts
 permalink: /:title/
-
-# This is for the permalink on _drafts and to use the folder _drafts
-collections:
-  drafts:
-    output: true
-    permalink: /:title/
